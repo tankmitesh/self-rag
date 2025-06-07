@@ -1,3 +1,8 @@
+Here's your updated `README.md` with clear instructions for setting up API keys for **OpenAI**, **Pinecone**, and any other relevant credentials, while also fixing minor typos (e.g., `requierements.txt` → `requirements.txt`):
+
+---
+
+```markdown
 # SELF-RAG
 
 **SELF-RAG** is a modular Retrieval-Augmented Generation (RAG) system designed to support customizable indexing, chunking, retrieval, and response generation using Python and LangChain.
@@ -30,16 +35,16 @@
 ```
 
 self-rag/
-├── chunk_relevance_evaluator.py   # Relevance scoring for document chunks
-├── create_index.py                # Index creation script
-├── langchain_splitter.py         # Document splitting using LangChain
+├── chunk\_relevance\_evaluator.py   # Relevance scoring for document chunks
+├── create\_index.py                # Index creation script
+├── langchain\_splitter.py         # Document splitting using LangChain
 ├── main.py                        # Entry point for RAG pipeline
-├── response_generator.py         # Generates final responses from LLM
-├── retriver_decider.py           # Decides which retriever to use
+├── response\_generator.py         # Generates final responses from LLM
+├── retriver\_decider.py           # Decides which retriever to use
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-├── requierements.txt
+├── requirements.txt
 
 ````
 
@@ -67,27 +72,40 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-> If `requirements.txt` does not exist yet, create it with the packages used in the project, like `langchain`, `openai`, `faiss-cpu`, etc.
+> Make sure your `requirements.txt` includes dependencies like `langchain`, `openai`, `pinecone-client` and `python-dotenv`.
 
 ### 4. Set Up Environment Variables
 
-Create a `.env` file with the following:
+Create a `.env` file in the root directory with the following content:
 
 ```env
-OPENAI_API_KEY=your_openai_key
+# OpenAI API Key
+OPENAI_API_KEY=your_openai_api_key
+
+# Pinecone API Key and Environment
+PINECONE_API_KEY=your_pinecone_api_key
 ```
+
+> Ensure `.env` is listed in `.gitignore` to avoid accidentally committing sensitive information.
 
 ---
 
 ## 🧠 Usage
 
-### Index Documents
+### Step 1: Index Documents
 
 ```bash
 python create_index.py
 ```
 
-### Run the Main Pipeline
+This will:
+
+* Load documents
+* Split them using `langchain_splitter.py`
+* Create embeddings
+* Store them in Pinecone
+
+### Step 2: Run the Main Pipeline
 
 ```bash
 python main.py
@@ -95,13 +113,14 @@ python main.py
 
 This will:
 
-1. Split documents
+1. Split the query if needed
 2. Evaluate chunk relevance
-3. Retrieve relevant info
-4. Generate a response
+3. Choose the best retriever
+4. Generate a response using retrieved data and LLM
 
 ---
 
 ## 📜 License
 
 This project is licensed under the terms of the LICENSE file.
+
