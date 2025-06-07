@@ -87,20 +87,7 @@ PINECONE_API_KEY=your_pinecone_api_key
 
 ## 🧠 Usage
 
-### Step 1: Index Documents
-
-```bash
-python create_index.py
-```
-
-This will:
-
-* Load documents
-* Split them using `langchain_splitter.py`
-* Create embeddings
-* Store them in Pinecone
-
-### Step 2: Run the Main Pipeline
+# Run the Main Pipeline
 
 ```bash
 python main.py
