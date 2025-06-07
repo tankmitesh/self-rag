@@ -1,8 +1,3 @@
-Here's your updated `README.md` with clear instructions for setting up API keys for **OpenAI**, **Pinecone**, and any other relevant credentials, while also fixing minor typos (e.g., `requierements.txt` → `requirements.txt`):
-
----
-
-```markdown
 # SELF-RAG
 
 **SELF-RAG** is a modular Retrieval-Augmented Generation (RAG) system designed to support customizable indexing, chunking, retrieval, and response generation using Python and LangChain.
