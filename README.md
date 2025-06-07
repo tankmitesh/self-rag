@@ -1,8 +1,3 @@
-Here’s a full `README.md` tailored for your `self-rag` project, assuming it runs on **Python 3.10.16** and based on the files visible in your project directory:
-
----
-
-```markdown
 # SELF-RAG
 
 **SELF-RAG** is a modular Retrieval-Augmented Generation (RAG) system designed to support customizable indexing, chunking, retrieval, and response generation using Python and LangChain.
